@@ -1,4 +1,5 @@
-﻿   using Microsoft.AspNetCore.Mvc;
+﻿using Entites;
+using Microsoft.AspNetCore.Mvc;
 using play.catalog.service.Extentions;
 using Repositories;
 
@@ -8,9 +9,9 @@ namespace play.catalog.service.Controllers
     [Route("items")]
     public class ItemsController : Controller
     {
-        private readonly IItemRepository _itemRepository;
+        private readonly IRepository<Item> _itemRepository;
         
-        public ItemsController(IItemRepository itemRepository)
+        public ItemsController(IRepository<Item> itemRepository)
         {
             _itemRepository = itemRepository;
         }

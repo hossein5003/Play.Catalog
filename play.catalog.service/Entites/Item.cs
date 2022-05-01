@@ -1,6 +1,6 @@
 ﻿namespace Entites
 {
-    public record Item
+    public record Item : IEntity
     {
         public Guid Id { get; set; }
 
