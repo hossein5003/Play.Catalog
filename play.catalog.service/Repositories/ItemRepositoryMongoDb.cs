@@ -7,14 +7,11 @@ namespace Repositories
     public class ItemRepositoryMongoDb : IItemRepository
     {
         private const string collectionName = "item";
-        private readonly string datebaseName = "catalog";
         private readonly IMongoCollection<Item> dbCollection;
 
 
-        public ItemRepositoryMongoDb()
+        public ItemRepositoryMongoDb(IMongoDatabase database)
         {
-            var mongoClient= new MongoClient("mongodb://localhost:27017");
-            var database = mongoClient.GetDatabase(datebaseName);
             dbCollection = database.GetCollection<Item>(collectionName);
         }
 
